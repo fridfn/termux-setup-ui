@@ -48,4 +48,10 @@ cp .termux/* ~/.termux/ 2>/dev/null && echo "✅ Copied .termux files" || echo "
 cp -r oh-my-zsh-custom ~/.oh-my-zsh/custom 2>/dev/null && echo "✅ Copied custom plugins" || echo "⚠️  Custom plugins tidak ditemukan."
 
 echo ""
+echo "🧩 Restoring bash profile..."
+cp .profile ~/ 2>/dev/null && echo "✅ Copied .profile" || echo "⚠️  .profile not found."
+cp .bashrc ~/ 2>/dev/null && echo "✅ Copied .bashrc" || echo "⚠️  .bashrc not found."
+
+
+echo ""
 echo "✨ Selesai! Restart Termux untuk menerapkan perubahan."
