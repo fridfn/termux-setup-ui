@@ -144,3 +144,8 @@ function code() {
       am start --user 0 -a android.intent.action.VIEW -d "file://$(pwd)/$1" -n com.foxdebug.acode/.MainActivity
    fi
 }
+
+clear
+if [ -t 1 ]; then
+  exec zsh
+fi
