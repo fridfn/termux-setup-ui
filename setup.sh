@@ -62,5 +62,32 @@ echo "🧩 Restoring bash profile..."
 cp .profile ~/ 2>/dev/null && echo "✅ Copied .profile" || echo "⚠️  .profile not found."
 cp .bashrc ~/ 2>/dev/null && echo "✅ Copied .bashrc" || echo "⚠️  .bashrc not found."
 
+echo "🎨 Linking dynamic MOTD..."
+
+MOTD_PATH="/data/data/com.termux/files/usr/etc/motd"
+BASHRC_PATH="$HOME/.bashrc"
+
+# hapus motd lama
+rm -f "$MOTD_PATH"
+
+# bikin motd baru yang nge-run bagian banner dari bashrc
+cat << 'EOF' > "$MOTD_PATH"
+#!/data/data/com.termux/files/usr/bin/bash
+# jalankan bagian tampilan dari .bashrc (fungsi clear misalnya)
+if grep -q "function clear" "$HOME/.bashrc"; then
+    # sementara clear dulu biar rapi
+    command clear
+    # load fungsi dan jalankan banner
+    source "$HOME/.bashrc"
+    clear  # panggil fungsi clear() dari bashrc
+else
+    echo "⚠️  No banner found in .bashrc"
+fi
+EOF
+
+chmod +x "$MOTD_PATH"
+echo "✅ Dynamic MOTD linked to .bashrc"
+
+
 echo ""
 echo "✨ Selesai! Restart Termux untuk menerapkan perubahan."

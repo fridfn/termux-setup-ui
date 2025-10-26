@@ -144,11 +144,3 @@ function code() {
       am start --user 0 -a android.intent.action.VIEW -d "file://$(pwd)/$1" -n com.foxdebug.acode/.MainActivity
    fi
 }
-
-# Cegah clear auto-run waktu motd udah tampil
-if [ -z "$MOTD_SHOWN" ]; then
-  export MOTD_SHOWN=1
-  exec zsh
-else
-  return
-fi
