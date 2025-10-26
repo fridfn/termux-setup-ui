@@ -48,9 +48,7 @@ cp .termux/* ~/.termux/ 2>/dev/null && echo "✅ Copied .termux files" || echo "
 cp -r oh-my-zsh-custom ~/.oh-my-zsh/custom 2>/dev/null && echo "✅ Copied custom plugins" || echo "⚠️  Custom plugins tidak ditemukan."
 
 echo "🎨 Copying custom theme..."
-if [ ! -d "$HOME/.oh-my-zsh/themes" ]; then
-  mkdir -p ~/.oh-my-zsh/custom/themes
-fi
+mkdir -p ~/.oh-my-zsh/custom/themes
 cp oh-my-zsh-custom/exfavorite.zsh-theme ~/.oh-my-zsh/custom/themes/
 echo "✅ Copied custom theme ExFavorite" 
 
