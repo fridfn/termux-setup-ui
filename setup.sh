@@ -47,6 +47,12 @@ mkdir -p ~/.termux
 cp .termux/* ~/.termux/ 2>/dev/null && echo "✅ Copied .termux files" || echo "⚠️  .termux files tidak ditemukan."
 cp -r oh-my-zsh-custom ~/.oh-my-zsh/custom 2>/dev/null && echo "✅ Copied custom plugins" || echo "⚠️  Custom plugins tidak ditemukan."
 
+echo "🎨 Copying custom theme..."
+if [ ! -d "$HOME/.oh-my-zsh/themes" ]; then
+  mkdir -p ~/.oh-my-zsh/themes
+fi
+cp -r oh-my-zsh-custom ~/.oh-my-zsh/custom
+
 echo ""
 echo "🧩 Restoring bash profile..."
 cp .profile ~/ 2>/dev/null && echo "✅ Copied .profile" || echo "⚠️  .profile not found."
