@@ -1,4 +1,8 @@
 alias gitlog="git log --pretty=format:'%h - %an, %ar : %s' -5"
+alias cpu="top -o %CPU | head -20"
+alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1"
+alias gitgraph="git log --all --decorate --oneline --graph"
+
 alias project='cd ~/project && ls'
 alias reload='source /data/data/com.termux/files/home/.bashrc'
 alias rbash="source ~/.bashrc && c"
@@ -97,13 +101,14 @@ cat << EOF
   ${green}Untuk melakukan sesuatu lebih lanjut gunakan perintah
   shortcut di bawah ini :${clear}
 
-  ${green}∆${clear}  ${purple}Warna${clear}        : ${blue}untuk membuka panduan kode warna${purple}${clear}
-  ${green}∆${clear}  ${green}Termux${clear}       : ${blue}untuk membuka panduan penggunaan shell${purple}${clear}
-  ${green}∆${clear}  ${purple}Code${clear}         : ${blue}untuk membuka text editor (Acode)${purple}${clear}
-  ${green}∆${clear}  ${green}gitlog${clear}       : ${blue}untuk melihat history commit branch ${purple}${clear}
+  ${green}∆${clear}  ${green}cpu${clear}          : ${blue}Lihat 20 proses yang paling banyak pakai CPU${purple}${clear}
+  ${green}∆${clear}  ${purple}code${clear}         : ${blue}untuk membuka text editor (Acode)${purple}${clear}
+  ${green}∆${clear}  ${green}gitlog${clear}       : ${blue}Lihat 5 commit terakhir dengan ringkas${purple}${clear}
+  ${green}∆${clear}  ${purple}gitgraph${clear}     : ${blue}Lihat history commit dalam graph visual${purple}${clear}
+  ${green}∆${clear}  ${green}myip${clear}         : ${blue}Lihat IP address lokal kamu, bukan localhost${purple}${clear}
   
 EOF
-echo -e "\033[35m___________________________________________________________\033[0m\n"
+echo -e "\033[35m_____________________________________________________________\033[0m\n"
 
 cat << EOF
   ${green}Di bawah ini adalah shortcut untuk panduan / rangkuman
@@ -115,11 +120,11 @@ cat << EOF
   ${green}∆${clear}  ${green}Github${clear}       : ${blue}Panduan fungsi fungsi Git${purple}
   ${green}∆${clear}  ${purple}Javascript${clear}   : ${blue}Rangkuman function yang sangat penting${purple}
   ${green}∆  ${green}command${clear}      : ${blue}Shortcut command${purple}
-
+  
   ${yellow}Note : untuk membuka / mengedit shortcut command diatas${clear}
   ${yellow}gunakan awalan${clear} ${red}o[nama shortcut]${clear}
 EOF
-echo -e "\033[35m___________________________________________________________\033[0m\n"
+echo -e "\033[35m________________________________________________________________\033[0m\n"
 }
 
 
