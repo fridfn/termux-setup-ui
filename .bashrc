@@ -148,6 +148,7 @@ function code() {
 # Cegah clear auto-run waktu motd udah tampil
 if [ -z "$MOTD_SHOWN" ]; then
   export MOTD_SHOWN=1
+  exec zsh
 else
   return
 fi
