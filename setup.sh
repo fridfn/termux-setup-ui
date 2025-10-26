@@ -62,6 +62,5 @@ echo "🧩 Restoring bash profile..."
 cp .profile ~/ 2>/dev/null && echo "✅ Copied .profile" || echo "⚠️  .profile not found."
 cp .bashrc ~/ 2>/dev/null && echo "✅ Copied .bashrc" || echo "⚠️  .bashrc not found."
 
-
 echo ""
 echo "✨ Selesai! Restart Termux untuk menerapkan perubahan."
