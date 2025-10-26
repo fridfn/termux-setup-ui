@@ -62,32 +62,28 @@ echo "🧩 Restoring bash profile..."
 cp .profile ~/ 2>/dev/null && echo "✅ Copied .profile" || echo "⚠️  .profile not found."
 cp .bashrc ~/ 2>/dev/null && echo "✅ Copied .bashrc" || echo "⚠️  .bashrc not found."
 
-echo "🎨 Linking dynamic MOTD..."
+echo "🔗 Linking dynamic MOTD with .bashrc banner..."
 
 MOTD_PATH="/data/data/com.termux/files/usr/etc/motd"
 BASHRC_PATH="$HOME/.bashrc"
 
-# hapus motd lama
-rm -f "$MOTD_PATH"
+# Buat motd jadi file kosong
+touch "$MOTD_PATH"
 
-# bikin motd baru yang nge-run bagian banner dari bashrc
-cat << 'EOF' > "$MOTD_PATH"
+# Tambahkan perintah sinkronisasi (bikin motd isi sama kaya tampilan .bashrc)
+cat << 'EOF' > "$HOME/.update_motd.sh"
 #!/data/data/com.termux/files/usr/bin/bash
-# jalankan bagian tampilan dari .bashrc (fungsi clear misalnya)
-if grep -q "function clear" "$HOME/.bashrc"; then
-    # sementara clear dulu biar rapi
-    command clear
-    # load fungsi dan jalankan banner
-    source "$HOME/.bashrc"
-    clear  # panggil fungsi clear() dari bashrc
-else
-    echo "⚠️  No banner found in .bashrc"
-fi
+
+# Jalankan fungsi clear dari .bashrc lalu simpan outputnya ke motd
+output=$(bash -i -c "source ~/.bashrc; clear")
+echo "$output" > /data/data/com.termux/files/usr/etc/motd
 EOF
 
-chmod +x "$MOTD_PATH"
-echo "✅ Dynamic MOTD linked to .bashrc"
+chmod +x "$HOME/.update_motd.sh"
 
+# Jalankan pertama kali buat sinkron
+bash "$HOME/.update_motd.sh"
+echo "✅ MOTD linked with .bashrc successfully."
 
 echo ""
 echo "✨ Selesai! Restart Termux untuk menerapkan perubahan."
