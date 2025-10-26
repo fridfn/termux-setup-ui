@@ -49,9 +49,10 @@ cp -r oh-my-zsh-custom ~/.oh-my-zsh/custom 2>/dev/null && echo "✅ Copied custo
 
 echo "🎨 Copying custom theme..."
 if [ ! -d "$HOME/.oh-my-zsh/themes" ]; then
-  mkdir -p ~/.oh-my-zsh/themes
+  mkdir -p ~/.oh-my-zsh/custom/themes
 fi
-cp -r oh-my-zsh-custom ~/.oh-my-zsh/custom
+cp oh-my-zsh-custom/exfavorite.zsh-theme ~/.oh-my-zsh/custom/themes/
+echo "✅ Copied custom theme ExFavorite" 
 
 echo ""
 echo "🧩 Restoring bash profile..."
