@@ -101,11 +101,11 @@ cat << EOF
   ${green}Untuk melakukan sesuatu lebih lanjut gunakan perintah
   shortcut di bawah ini :${clear}
 
-  ${green}∆${clear}  ${green}cpu${clear}          : ${blue}Lihat 20 proses yang paling banyak pakai CPU${purple}${clear}
+  ${green}∆${clear}  ${green}cpu${clear}          : ${blue}Lihat 20 proses yang pakai CPU${purple}${clear}
   ${green}∆${clear}  ${purple}code${clear}         : ${blue}untuk membuka text editor (Acode)${purple}${clear}
   ${green}∆${clear}  ${green}gitlog${clear}       : ${blue}Lihat 5 commit terakhir dengan ringkas${purple}${clear}
   ${green}∆${clear}  ${purple}gitgraph${clear}     : ${blue}Lihat history commit dalam graph visual${purple}${clear}
-  ${green}∆${clear}  ${green}myip${clear}         : ${blue}Lihat IP address lokal kamu, bukan localhost${purple}${clear}
+  ${green}∆${clear}  ${green}myip${clear}         : ${blue}Lihat IP address lokal kamu${purple}${clear}
   
 EOF
 echo -e "\033[35m_____________________________________________________________\033[0m\n"
