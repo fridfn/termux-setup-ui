@@ -108,7 +108,7 @@ cat << EOF
   ${green}∆${clear}  ${green}myip${clear}         : ${blue}Lihat IP address lokal kamu${purple}${clear}
   
 EOF
-echo -e "\033[35m_____________________________________________________________\033[0m\n"
+echo -e "\033[35m___________________________________________________________\033[0m\n"
 
 cat << EOF
   ${green}Di bawah ini adalah shortcut untuk panduan / rangkuman
@@ -124,7 +124,7 @@ cat << EOF
   ${yellow}Note : untuk membuka / mengedit shortcut command diatas${clear}
   ${yellow}gunakan awalan${clear} ${red}o[nama shortcut]${clear}
 EOF
-echo -e "\033[35m________________________________________________________________\033[0m\n"
+echo -e "\033[35m___________________________________________________________\033[0m\n"
 }
 
 
