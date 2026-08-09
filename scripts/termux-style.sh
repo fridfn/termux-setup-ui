@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — TERMUX STYLE SETUP
+# 🌱 FARID FATHONI N — TERMUX STYLE SETUP
 # ═══════════════════════════════════════════════════════════════
 
 set -e
@@ -13,7 +13,7 @@ SOURCE="$REPO_DIR/.termux"
 DEST="$HOME/.termux"
 
 echo ""
-echo "🌱 AURIELLE — TERMUX STYLE"
+echo "🌱 FARID FATHONI N — TERMUX STYLE"
 echo ""
 
 mkdir -p "$DEST"

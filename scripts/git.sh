@@ -1,13 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — GIT SETUP
+# 🌱 FARID FATHONI N — GIT SETUP
 # ═══════════════════════════════════════════════════════════════
 
 set -e
 
 echo ""
-echo "🔧 AURIELLE — GIT SETUP"
+echo "🔧 FARID FATHONI N — GIT SETUP"
 echo ""
 
 # ───────────────────────────────────────────────────────────────

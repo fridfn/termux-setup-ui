@@ -1,14 +1,14 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — TERMUX ENVIRONMENT SETUP
+# 🌱 — TERMUX ENVIRONMENT SETUP
 #
 # Version : 2.0
 #
 # Purpose:
-#   Prepare a clean Termux environment for Aurielle.
+#   Prepare a clean Termux environment for.
 #
-# Aurielle source code lives in a separate repository.
+# source code lives in a separate repository.
 # This repository ONLY manages the Termux environment.
 # ═══════════════════════════════════════════════════════════════
 
@@ -49,7 +49,7 @@ clear
 echo ""
 echo "╔══════════════════════════════════════════════════════════╗"
 echo "║                                                          ║"
-echo "║              🌱 AURIELLE TERMUX SETUP                   ║"
+echo "║              🌱 TERMUX SETUP                   ║"
 echo "║                                                          ║"
 echo "║                  Environment v2.0                        ║"
 echo "║                                                          ║"
@@ -96,7 +96,7 @@ while true; do
 
     echo ""
     echo "════════════════════════════════════════════════════════"
-    echo "🌱 AURIELLE SETUP MENU"
+    echo "🌱 SETUP MENU"
     echo "════════════════════════════════════════════════════════"
     echo ""
     echo "  [1] Update / upgrade Termux"
@@ -168,7 +168,7 @@ while true; do
 
         [[Aa])
             echo ""
-            echo "🚀 Running recommended Aurielle environment setup..."
+            echo "🚀 Running recommended environment setup..."
             echo ""
 
             # ───────────────────────────────────────────────
@@ -241,7 +241,7 @@ while true; do
             ;;
         0)
             echo ""
-            echo "👋 Leaving Aurielle setup."
+            echo "👋 Leaving setup."
             echo ""
             exit 0
             ;;

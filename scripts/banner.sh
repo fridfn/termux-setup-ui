@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — TERMINAL BANNER
+# 🌱 FARID FATHONI N — TERMINAL BANNER
 # ═══════════════════════════════════════════════════════════════
 
 # Colors

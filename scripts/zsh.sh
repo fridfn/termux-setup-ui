@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — ZSH SETUP
+# 🌱 FARID FATHONI N — ZSH SETUP
 # ═══════════════════════════════════════════════════════════════
 
 set -e
@@ -12,7 +12,7 @@ ZSH="$HOME/.oh-my-zsh"
 CUSTOM="$ZSH/custom"
 
 echo ""
-echo "🌱 AURIELLE — ZSH"
+echo "🌱 FARID FATHONI N — ZSH"
 echo ""
 
 
@@ -150,7 +150,7 @@ else
 fi
 
 # ───────────────────────────────────────────────────────────────
-# AURIELLE CLEAR HOOK
+# FARID FATHONI N CLEAR HOOK
 # ───────────────────────────────────────────────────────────────
 
 BANNER="$REPO_DIR/scripts/banner.sh"
@@ -159,24 +159,24 @@ ZSHRC="$HOME/.zshrc"
 if [ -f "$BANNER" ]; then
 
     # Hapus hook lama jika ada
-    sed -i '/# AURIELLE_CLEAR_HOOK_START/,/# AURIELLE_CLEAR_HOOK_END/d' "$ZSHRC"
+    sed -i '/# FARID FATHONI N_CLEAR_HOOK_START/,/# FARID FATHONI N_CLEAR_HOOK_END/d' "$ZSHRC"
 
     cat >> "$ZSHRC" <<EOF
 
 # ───────────────────────────────────────────────────────────────
-# 🌱 AURIELLE CLEAR HOOK
+# 🌱 FARID FATHONI N CLEAR HOOK
 # ───────────────────────────────────────────────────────────────
-# AURIELLE_CLEAR_HOOK_START
+# FARID FATHONI N_CLEAR_HOOK_START
 
 function clear() {
     command clear
     bash "$BANNER"
 }
 
-# AURIELLE_CLEAR_HOOK_END
+# FARID FATHONI N_CLEAR_HOOK_END
 EOF
 
-    echo "✅ Aurielle clear hook installed."
+    echo "✅ FARID FATHONI N clear hook installed."
 
 else
 

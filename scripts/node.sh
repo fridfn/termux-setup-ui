@@ -1,13 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — NODE.JS LTS
+# 🌱 FARID FATHONI N — NODE.JS LTS
 # ═══════════════════════════════════════════════════════════════
 
 set -u
 
 echo ""
-echo "🟢 AURIELLE — NODE.JS LTS"
+echo "🟢 FARID FATHONI N — NODE.JS LTS"
 echo ""
 
 if command -v node >/dev/null 2>&1; then

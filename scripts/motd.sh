@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — MOTD SETUP
+# 🌱 FARID FATHONI N — MOTD SETUP
 # ═══════════════════════════════════════════════════════════════
 
 set -e
@@ -17,7 +17,7 @@ UPDATE_SCRIPT="$HOME/update_motd.sh"
 
 
 echo ""
-echo "🌱 AURIELLE — MOTD SETUP"
+echo "🌱 FARID FATHONI N — MOTD SETUP"
 echo ""
 
 

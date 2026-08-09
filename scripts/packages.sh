@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE TERMUX SETUP
+# 🌱 FARID FATHONI N TERMUX SETUP
 # Package Installer
 # ═══════════════════════════════════════════════════════════════
 

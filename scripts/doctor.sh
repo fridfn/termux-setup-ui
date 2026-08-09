@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — ENVIRONMENT DOCTOR
+# 🌱 FARID FATHONI N — ENVIRONMENT DOCTOR
 # ═══════════════════════════════════════════════════════════════
 
 set -u
@@ -74,7 +74,7 @@ clear
 echo ""
 echo "╔══════════════════════════════════════════════════════════╗"
 echo "║                                                          ║"
-echo "║              🩺 AURIELLE ENVIRONMENT DOCTOR             ║"
+echo "║              🩺 FARID FATHONI N ENVIRONMENT DOCTOR             ║"
 echo "║                                                          ║"
 echo "╚══════════════════════════════════════════════════════════╝"
 echo ""
@@ -312,7 +312,7 @@ echo ""
 
 if [ "$FAIL" -eq 0 ] && [ "$WARN" -eq 0 ]; then
 
-    echo "🌱 Aurielle environment is healthy."
+    echo "🌱 FARID FATHONI N environment is healthy."
 
 elif [ "$FAIL" -eq 0 ]; then
 

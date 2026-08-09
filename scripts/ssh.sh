@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ═══════════════════════════════════════════════════════════════
-# 🌱 AURIELLE — SSH / GITHUB SETUP
+# 🌱 FARID FATHONI N — SSH / GITHUB SETUP
 # ═══════════════════════════════════════════════════════════════
 
 set -u
@@ -12,7 +12,7 @@ PUB_KEY="$KEY.pub"
 CONFIG="$SSH_DIR/config"
 
 echo ""
-echo "🔐 AURIELLE — SSH / GITHUB SETUP"
+echo "🔐 FARID FATHONI N — SSH / GITHUB SETUP"
 echo ""
 
 # ───────────────────────────────────────────────────────────────
