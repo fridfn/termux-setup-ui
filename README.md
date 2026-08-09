@@ -1,301 +1,587 @@
-# 💜 Termux Custom Setup - FaDevelopment
+🌱 Farid Fathoni N — Termux Environment
 
-> **Beautiful, functional, and personalized CLI environment for Termux**  
-> Created by Farid Fathoni Nugroho
+«Personal Termux environment setup and configuration for.»
 
-A comprehensive Termux configuration featuring a custom Zsh theme, intelligent bash functions, and developer-focused shortcuts for an enhanced mobile development experience.
+Repository ini digunakan untuk menyiapkan, mengonfigurasi, dan memelihara environment Termux yang digunakan untuk development dan menjalankan ekosistem Farid Fathoni N.
 
----
-
-## ✨ Features
-
-- 🎨 **Custom ASCII Art Banner** - Beautiful purple-cyan gradient welcome screen
-- 🚀 **Smart Command Aliases** - Quick shortcuts for common tasks
-- 📝 **Enhanced Directory Listing** - Colorful and informative `ls` output
-- 🔧 **Developer Tools Integration** - Git, Node.js, PHP, MariaDB, Redis, and more
-- 🎯 **Custom Functions** - Code editor integration, dynamic MOTD, and more
-- 📚 **Quick Reference System** - Built-in documentation for React, JavaScript, Git, and Termux commands
-- 🌈 **Base16 3024 Color Scheme** - Eye-friendly dark theme with vibrant accents
-- ⚡ **Oh My Zsh Integration** - Enhanced shell with plugins and custom theme
+Source code utama tidak berada di repository ini. Repository ini hanya bertanggung jawab terhadap environment, shell, tools, konfigurasi, dan automation yang dibutuhkan.
 
 ---
 
-## 📦 Installation
+✨ Features
 
-### Prerequisites
+Farid Fathoni N Termux Setup menyediakan:
 
-- **Termux** installed on Android device
-- Internet connection for package downloads
-- Storage permission granted to Termux
-
-### Quick Install
-
-1. **Clone or download this repository:**
-   ```bash
-   cd ~
-   git clone <your-repo-url> termux-setup
-   cd termux-setup
-   ```
-
-2. **Run the setup script:**
-   ```bash
-   chmod +x setup.sh
-   ./setup.sh
-   ```
-
-3. **Follow the prompts:**
-   - Choose whether to install packages from `packages.txt`
-   - Decide if you want Oh My Zsh installed (recommended)
-
-4. **Restart Termux** to apply all changes
+- 🌱 Automated Termux environment setup
+- 📦 Package management berdasarkan kategori
+- 🟢 Node.js LTS setup
+- 🔧 Git configuration
+- 🔐 SSH & GitHub authentication setup
+- 🐚 Zsh setup
+- 🧠 Oh My Zsh integration
+- 🎨 ExFavorite custom theme
+- ✨ Zsh autosuggestions
+- 🖍️ Zsh syntax highlighting
+- 🖥️ Custom terminal banner
+- 📜 Dynamic Termux MOTD
+- 🧹 Custom "clear" hook
+- 🩺 Environment Doctor
+- 🚀 Recommended setup
+- ♻️ Idempotent setup scripts
 
 ---
 
-## 🎨 What Gets Installed
+📁 Repository Structure
 
-### Configuration Files
-
-| File | Location | Purpose |
-|------|----------|---------|
-| `.zshrc` | `~/` | Zsh configuration with custom theme |
-| `.bashrc` | `~/` | Bash configuration with functions and aliases |
-| `.profile` | `~/` | Sources `.bashrc` on login |
-| `colors.properties` | `~/.termux/` | Custom color scheme |
-| `termux.properties` | `~/.termux/` | Termux app settings |
-| `exfavorite.zsh-theme` | `~/.oh-my-zsh/custom/themes/` | Custom Zsh prompt theme |
-
-### Key Packages
-
-```md
-Development Tools:
-- git, gh (GitHub CLI)
-- nodejs, yarn, npm
-- php, php-fpm, composer
-- python, python-pip
-- clang, make, llvm
-
-Database & Cache:
-- mariadb, redis
-
-Networking:
-- nginx, openssh
-- curl, wget (via inetutils)
-
-Utilities:
-- zsh, oh-my-zsh
-- nano, tree, neofetch
-- figlet, jp2a
-- ncdu, man, less
-```
-
----
-
-## 🚀 Usage Guide
-
-### Custom Banner
-
-Every time you open a new terminal session or type `clear`, you'll see:
-
-```md
-   ____  _____      _____                     _ _
-  / __ \| ____|_  _|  ___|_ ___   _____  _ __(_) |_ ___
- / / _ `|  _| \ \/ / |_ / _ `\ \ / / _ \| "__| | __/ _ \
-| | (_| | |___ >  <|  _| (_| |\ V / (_) | |  | | ||  __/
- \ \__,_|_____/_/\_\_|  \__,_| \_/ \___/|_|  |_|\__\___|
-  \____/ By : Farid Fathoni N ~
-
-  Selamat datang di terminal @FaDevelopment !
-```
-
-### Custom Functions
-
-#### `color()`
-Apply colors to terminal output:
-```bash
-color "Hello World" purple
-color "Error message" red
-color "Success!" green
-```
-
-Available colors: `black`, `red`, `green`, `yellow`, `blue`, `purple`, `cyan`, `white`
-
-#### `code()`
-Open files in Acode editor:
-```bash
-code                    # Open Acode
-code index.html         # Open specific file
-code src/App.jsx        # Open with path
-```
-
-#### Enhanced `ls`
-Automatically shows:
-- Colored directory listing
-- Current working directory
-- Decorative borders
-
----
-
-## 🎨 Customization
-
-### Changing the Banner
-
-Edit the ASCII art in `.bashrc`:
-
-```bash
-nano ~/.bashrc
-# Find the clear() function and modify the echo statements
-```
-
-### Adding New Aliases
-
-```bash
-obash
-# Add at the bottom:
-alias mycommand="your command here"
-# Save, then:
-reload
-```
-
-### Modifying Colors
-
-Edit the color scheme:
-```bash
-nano ~/.termux/colors.properties
-```
-
-### Creating Custom Documentation
-
-Add your own reference guides:
-```bash
-cd ~/kamus
-nano myguide.sh
-# Write your guide, then add alias in .bashrc:
-alias myguide='~/kamus/myguide.sh'
-```
-
----
-
-## 📚 Oh My Zsh Integration
-
-### Included Plugins
-
-- **git** - Git aliases and tab completion
-- **zsh-autosuggestions** - Fish-like command suggestions
-- **zsh-syntax-highlighting** - Real-time syntax highlighting
-
-### Theme: exfavorite
-
-Custom theme featuring:
-- Current directory display
-- Git branch and status indicators
-- Color-coded prompt based on command success
-- Clean, minimal design
-
----
-
-## 🔧 Troubleshooting
-
-### MOTD Not Updating
-
-If the welcome message doesn't match your `.bashrc` banner:
-
-```bash
-bash ~/.update_motd.sh
-```
-
-### Zsh Theme Not Loading
-
-Ensure the theme file exists:
-```bash
-ls ~/.oh-my-zsh/custom/themes/exfavorite.zsh-theme
-```
-
-If missing, copy from backup:
-```bash
-cp oh-my-zsh-custom/themes/exfavorite.zsh-theme ~/.oh-my-zsh/custom/themes/
-```
-
-### Colors Not Working
-
-Check if `colors.properties` is in the right place:
-```bash
-ls ~/.termux/colors.properties
-```
-
-Apply colors:
-```bash
-termux-reload-settings
-```
-
-### Aliases Not Found
-
-Reload your configuration:
-```bash
-source ~/.bashrc
-source ~/.zshrc
-```
-
----
-
-## 🗂️ Project Structure
-
-```md
-termux-setup/
-├── .bashrc                      # Bash configuration & aliases
-├── .zshrc                       # Zsh configuration
-├── .profile                     # Login profile
-├── .termux/
-│   ├── colors.properties        # Color scheme
-│   └── termux.properties        # App settings
+.
+├── .github/
+│   └── ...
+│
 ├── oh-my-zsh-custom/
+│   ├── plugins/
 │   └── themes/
-│       └── exfavorite.zsh-theme # Custom Zsh theme
-├── kamus/                       # Reference guides (not included)
-│   ├── termux.sh
-│   ├── github.sh
-│   ├── react.sh
-│   ├── javascript.sh
-│   └── color.sh
-├── packages.txt                 # Package list
-├── setup.sh                     # Automated setup script
-└── README.md                    # This file
-```
+│       └── exfavorite.zsh-theme
+│
+├── packages/
+│   ├── core.txt
+│   ├── dev.txt
+│   ├── optional.txt
+│   └── server.txt
+│
+├── scripts/
+│   ├── banner.sh
+│   ├── doctor.sh
+│   ├── git.sh
+│   ├── motd.sh
+│   ├── node.sh
+│   ├── packages.sh
+│   ├── ssh.sh
+│   └── zsh.sh
+│
+├── .bashrc
+├── .profile
+├── .zshrc
+├── colors.properties
+├── font.ttf
+├── termux.properties
+├── setup.sh
+└── README.md
 
 ---
 
-## 🤝 Contributing
+🚀 Installation
 
-This is a personal configuration, but feel free to:
-- Fork and adapt for your needs
-- Suggest improvements via issues
-- Share your own customizations
+Requirements
 
----
+Setup ditujukan untuk:
 
-## 📄 License
+- Android
+- Termux
+- ARM64 / "aarch64"
+- Termux dari F-Droid atau sumber resmi Termux
 
-This configuration is free to use and modify. Created with 💜 by Farid Fathoni Nugroho.
-
----
-
-## 🙏 Acknowledgments
-
-- **Oh My Zsh** - Framework for managing Zsh configuration
-- **Base16** - Color scheme foundation
-- **Termux Community** - For the amazing Android terminal emulator
+Pastikan repository Termux dapat diakses sebelum menjalankan setup.
 
 ---
 
-## 📞 Support
+1. Clone repository
 
-If you encounter issues:
-1. Check the troubleshooting section above
-2. Review your modifications to config files
-3. Restore from backup if needed
+git clone <repository-url> ~/termux-setup
+cd ~/termux-setup
 
 ---
 
-**Happy coding from your mobile terminal!** 🚀💜
+2. Jalankan setup
 
-> *"Coding isn't just about logic... it's about putting your heart into the screen."*  
-> — Farid Fathoni Nugroho
+bash setup.sh
+
+akan menampilkan menu utama:
+
+════════════════════════════════════════════════════════
+🌱 Farid Fathoni N SETUP MENU
+════════════════════════════════════════════════════════
+
+  [1] Update / upgrade Termux
+
+  [2] Install Core packages
+  [3] Install Development packages
+  [4] Install Optional packages
+  [5] Install Server packages
+
+  [6] Setup Node.js LTS
+  [7] Setup Git
+  [8] Setup SSH / GitHub
+  [9] Setup Zsh & configuration
+
+  [D] Run environment doctor
+  [A] Recommended setup
+  [0] Exit
+
+---
+
+⚡ Recommended Setup
+
+Untuk installation baru setelah factory reset, gunakan:
+
+[A] Recommended setup
+
+Recommended setup akan memasang komponen utama yang dibutuhkan environment.
+
+Secara umum:
+
+Termux update
+      ↓
+Core packages
+      ↓
+Node.js LTS
+      ↓
+Zsh / shell configuration
+      ↓
+Environment ready
+
+Komponen tambahan seperti Git identity dan GitHub SSH dapat dikonfigurasi melalui menu masing-masing.
+
+---
+
+📦 Package Management
+
+Package dikelompokkan berdasarkan kebutuhan.
+
+Core
+
+Tools dasar yang dibutuhkan environment:
+
+git
+curl
+wget
+jq
+openssh
+zsh
+...
+
+Install:
+
+bash scripts/packages.sh core
+
+Development
+
+Development tools seperti compiler, runtime, dan utilities.
+
+bash scripts/packages.sh dev
+
+Optional
+
+Tools tambahan yang tidak selalu dibutuhkan.
+
+bash scripts/packages.sh optional
+
+Server
+
+Package untuk kebutuhan server/local development.
+
+bash scripts/packages.sh server
+
+---
+
+🟢 Node.js
+
+Aurielle menggunakan Node.js LTS sebagai runtime utama untuk project JavaScript/Node.
+
+Setup:
+
+bash scripts/node.sh
+
+Verifikasi:
+
+node --version
+npm --version
+
+Contoh environment:
+
+Node : v24.x
+npm  : 11.x
+
+Script akan mempertahankan instalasi Node.js yang sudah tersedia apabila environment sudah sesuai.
+
+---
+
+🔧 Git
+
+Konfigurasi Git dapat dilakukan melalui:
+
+bash scripts/git.sh
+
+Verifikasi:
+
+git --version
+git config --global --get user.name
+git config --global --get user.email
+
+Jika Git identity belum tersedia, setup akan meminta konfigurasi yang diperlukan.
+
+---
+
+🔐 SSH & GitHub
+
+menyediakan setup SSH untuk GitHub.
+
+Jalankan:
+
+bash scripts/ssh.sh
+
+Setup akan:
+
+1. Membuat "~/.ssh" jika belum tersedia.
+2. Membuat Ed25519 SSH key.
+3. Mengatur konfigurasi SSH.
+4. Menampilkan public key.
+5. Membantu melakukan authentication test ke GitHub.
+
+Public key dapat ditambahkan melalui:
+
+GitHub → Settings → SSH and GPG keys → New SSH key
+
+Setelah ditambahkan, test:
+
+ssh -T git@github.com
+
+Authentication yang berhasil biasanya menghasilkan pesan seperti:
+
+Hi <username>! You've successfully authenticated,
+but GitHub does not provide shell access.
+
+---
+
+🐚 Zsh
+
+menggunakan Zsh + Oh My Zsh sebagai shell utama.
+
+Setup:
+
+bash scripts/zsh.sh
+
+Komponen yang dikonfigurasi:
+
+Zsh
+ ├── Oh My Zsh
+ ├── zsh-autosuggestions
+ ├── zsh-syntax-highlighting
+ └── ExFavorite theme
+
+Zsh juga akan dikonfigurasi sebagai default shell apabila environment mendukungnya.
+
+Verifikasi:
+
+echo "$SHELL"
+
+---
+
+🎨 ExFavorite Theme
+
+menggunakan custom theme:
+
+ExFavorite
+
+Theme berada di:
+
+oh-my-zsh-custom/themes/exfavorite.zsh-theme
+
+dan dipasang ke:
+
+~/.oh-my-zsh/custom/themes/exfavorite.zsh-theme
+
+Konfigurasi ".zshrc":
+
+ZSH_THEME="exfavorite"
+
+---
+
+🖥️ Terminal Banner
+
+Banner utama berada di:
+
+scripts/banner.sh
+
+File ini menjadi single source of truth untuk tampilan banner terminal.
+
+Banner digunakan oleh:
+
+Termux startup
+       ↓
+     /etc/motd
+
+clear command
+       ↓
+   Zsh clear hook
+
+Dengan demikian, tampilan startup dan "clear" menggunakan sumber yang sama.
+
+Menjalankan banner secara manual:
+
+bash scripts/banner.sh
+
+---
+
+📜 MOTD
+
+MOTD dikonfigurasi melalui:
+
+bash scripts/motd.sh
+
+Script menghasilkan:
+
+$PREFIX/etc/motd
+
+dan membuat generator:
+
+~/update_motd.sh
+
+Generator dapat digunakan untuk memperbarui MOTD berdasarkan "banner.sh".
+
+---
+
+🧹 Clear Hook
+
+Aurielle mengintegrasikan banner dengan command:
+
+clear
+
+Sehingga:
+
+clear
+
+tidak hanya membersihkan terminal, tetapi juga menampilkan kembali banner.
+
+Implementasinya berada pada konfigurasi Zsh.
+
+Tujuannya adalah menjaga pengalaman terminal tetap konsisten:
+
+┌──────────────────────────┐
+│      Terminal Start      │
+│          ↓               │
+│      Banner     │
+└──────────────────────────┘
+
+             atau
+
+┌──────────────────────────┐
+│          clear            │
+│            ↓              │
+│      Banner     │
+└──────────────────────────┘
+
+---
+
+🩺 Environment Doctor
+
+Untuk memeriksa kondisi environment:
+
+bash scripts/doctor.sh
+
+Doctor memeriksa beberapa komponen utama:
+
+System
+
+- Termux
+- Architecture
+- Android version
+- Termux version
+
+Core Tools
+
+- Git
+- curl
+- wget
+- jq
+- OpenSSH
+- Zsh
+
+Node.js
+
+- Node.js
+- npm
+
+Git
+
+- Git name
+- Git email
+
+SSH
+
+- "~/.ssh"
+- Ed25519 private key
+- Ed25519 public key
+
+Configuration
+
+- ".bashrc"
+- ".profile"
+- ".zshrc"
+- ".termux"
+- Oh My Zsh
+
+Repository
+
+- "setup.sh"
+- "packages/"
+- "scripts/"
+
+GitHub
+
+- SSH key availability
+
+Doctor membedakan:
+
+✅ Passed
+⚠️ Warning
+❌ Failed
+
+Warning tidak selalu berarti environment rusak. Beberapa warning merupakan konfigurasi opsional seperti Git identity atau SSH key.
+
+---
+
+🔄 Idempotent Setup
+
+Script dirancang agar aman dijalankan lebih dari satu kali.
+
+Contohnya:
+
+bash scripts/zsh.sh
+bash scripts/zsh.sh
+bash scripts/zsh.sh
+
+Tidak seharusnya menghasilkan instalasi plugin/theme yang berulang atau konfigurasi yang menumpuk.
+
+Plugin diperiksa berdasarkan file yang benar-benar dibutuhkan, bukan hanya keberadaan direktorinya.
+
+Contoh:
+
+directory exists
+       ≠
+plugin installed
+
+Hal ini penting karena directory kosong dapat muncul akibat instalasi yang sebelumnya gagal.
+
+---
+
+🔁 Factory Reset Recovery
+
+Salah satu tujuan utama repository ini adalah mempermudah recovery setelah device di-reset.
+
+Flow yang diharapkan:
+
+Factory Reset
+      ↓
+Install Termux
+      ↓
+Clone termux-setup
+      ↓
+bash setup.sh
+      ↓
+[A] Recommended setup
+      ↓
+Configure Git
+      ↓
+Configure SSH / GitHub
+      ↓
+Configure Zsh
+      ↓
+Environment Doctor
+      ↓
+🌱 Environment Ready
+
+Dengan repository ini, konfigurasi environment tidak perlu dibuat ulang secara manual.
+
+---
+
+🧪 Verification
+
+Setelah setup selesai, jalankan:
+
+bash scripts/doctor.sh
+
+Kemudian verifikasi:
+
+node --version
+npm --version
+git --version
+curl --version
+jq --version
+ssh -V
+zsh --version
+
+Verifikasi shell:
+
+echo "$SHELL"
+echo "$ZSH_THEME"
+
+Verifikasi plugin:
+
+ls ~/.oh-my-zsh/custom/plugins/
+
+Verifikasi theme:
+
+ls ~/.oh-my-zsh/custom/themes/
+
+Verifikasi GitHub:
+
+ssh -T git@github.com
+
+---
+
+🌱 Design Philosophy
+
+Aurielle Termux Setup mengikuti beberapa prinsip:
+
+1. Separation of Concerns
+
+Environment setup dan source code dipisahkan.
+
+2. Idempotency
+
+Setup dapat dijalankan kembali tanpa merusak konfigurasi yang sudah ada.
+
+3. Recovery First
+
+Environment harus mudah dipulihkan setelah device reset.
+
+4. Single Source of Truth
+
+Komponen seperti terminal banner tidak dibuat ulang di banyak tempat.
+
+5. Diagnostic Before Manual Fix
+
+Environment Doctor digunakan untuk mengetahui kondisi sistem sebelum melakukan troubleshooting manual.
+
+6. Minimal Manual Configuration
+
+Sebisa mungkin proses setup dilakukan melalui automation.
+
+---
+
+📌 Current Environment
+
+Environment ini dikembangkan dan digunakan pada perangkat Android ARM64 dengan Termux.
+
+Contoh environment:
+
+Architecture : aarch64
+Android      : 9
+Termux       : 0.119.0-beta.3
+Node.js      : 24.x LTS
+npm          : 11.x
+Shell        : Zsh
+Framework    : Oh My Zsh
+Theme        : ExFavorite
+
+Versi dapat berbeda tergantung versi package yang tersedia pada repository Termux.
+
+---
+
+🌱 Farid Fathoni N
+
+«A clean environment for a calmer development workflow.»
+
+Repository ini bukan sekadar installer package.
+
+Ini adalah blueprint environment Farid Fathoni N — sehingga ketika environment hilang, device di-reset, atau setup perlu direproduksi, seluruh fondasi dapat dibangun kembali dari repository ini.

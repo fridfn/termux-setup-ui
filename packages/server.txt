@@ -1,0 +1,6 @@
+nginx
+redis
+mariadb
+php
+php-fpm
+composer
