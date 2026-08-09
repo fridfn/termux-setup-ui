@@ -1,0 +1,4 @@
+ncdu
+dos2unix
+patch
+man

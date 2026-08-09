@@ -1,0 +1,7 @@
+clang
+make
+pkg-config
+llvm
+lld
+gdb
+python

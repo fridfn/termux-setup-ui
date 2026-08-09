@@ -151,6 +151,6 @@ function code() {
 }
 
 # Auto sync motd kalau .bashrc diubah
-if [ "$HOME/.bashrc" -nt "/data/data/com.termux/files/usr/etc/motd" ]; then
-  bash ~/update_motd.sh
+if [ "$HOME/.bashrc" -nt "$PREFIX/etc/motd" ]; then
+    bash "$HOME/update_motd.sh"
 fi
