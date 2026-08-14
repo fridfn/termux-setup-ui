@@ -1,44 +1,47 @@
-🌱 Farid Fathoni N — Termux Environment
+# 🌱 Farid Fathoni N — Termux Environment
 
-«Personal Termux environment setup and configuration for.»
+> **Personal Termux environment setup and configuration.**
 
-Repository ini digunakan untuk menyiapkan, mengonfigurasi, dan memelihara environment Termux yang digunakan untuk development dan menjalankan ekosistem Farid Fathoni N.
+Repository ini digunakan untuk membangun kembali environment Termux untuk kebutuhan development.
 
-Source code utama tidak berada di repository ini. Repository ini hanya bertanggung jawab terhadap environment, shell, tools, konfigurasi, dan automation yang dibutuhkan.
+Repository ini **tidak menyimpan source code project utama**. Fokusnya hanya pada:
+
+- Shell & terminal
+- Development tools
+- Git & SSH
+- Zsh & Oh My Zsh
+- Terminal appearance
+- Automation & diagnostics
 
 ---
 
-✨ Features
+## ✨ Features
 
-Farid Fathoni N Termux Setup menyediakan:
-
-- 🌱 Automated Termux environment setup
-- 📦 Package management berdasarkan kategori
-- 🟢 Node.js LTS setup
+- 🌱 Automated Termux setup
+- 📦 Categorized package management
+- 🟢 Node.js LTS
 - 🔧 Git configuration
-- 🔐 SSH & GitHub authentication setup
-- 🐚 Zsh setup
-- 🧠 Oh My Zsh integration
+- 🔐 SSH & GitHub authentication
+- 🐚 Zsh + Oh My Zsh
 - 🎨 ExFavorite custom theme
 - ✨ Zsh autosuggestions
 - 🖍️ Zsh syntax highlighting
 - 🖥️ Custom terminal banner
-- 📜 Dynamic Termux MOTD
-- 🧹 Custom "clear" hook
+- 📜 Termux MOTD
+- 🧹 Custom `clear` behavior
 - 🩺 Environment Doctor
-- 🚀 Recommended setup
-- ♻️ Idempotent setup scripts
+- ♻️ Idempotent setup
+- 🔁 Factory-reset recovery
 
 ---
 
-📁 Repository Structure
+## 📁 Structure
 
+```text
 .
 ├── .github/
-│   └── ...
 │
 ├── oh-my-zsh-custom/
-│   ├── plugins/
 │   └── themes/
 │       └── exfavorite.zsh-theme
 │
@@ -66,415 +69,282 @@ Farid Fathoni N Termux Setup menyediakan:
 ├── termux.properties
 ├── setup.sh
 └── README.md
+```
 
 ---
 
-🚀 Installation
+## 🚀 Installation
 
-Requirements
-
-Setup ditujukan untuk:
+### Requirements
 
 - Android
 - Termux
-- ARM64 / "aarch64"
-- Termux dari F-Droid atau sumber resmi Termux
+- ARM64 / `aarch64`
+- Termux dari F-Droid atau sumber resmi
 
-Pastikan repository Termux dapat diakses sebelum menjalankan setup.
+### 1. Clone
 
----
-
-1. Clone repository
-
+```bash
 git clone <repository-url> ~/termux-setup
 cd ~/termux-setup
+```
 
----
+### 2. Run Setup
 
-2. Jalankan setup
-
+```bash
 bash setup.sh
+```
 
-akan menampilkan menu utama:
+Kemudian pilih:
 
-════════════════════════════════════════════════════════
-🌱 Farid Fathoni N SETUP MENU
-════════════════════════════════════════════════════════
-
-  [1] Update / upgrade Termux
-
-  [2] Install Core packages
-  [3] Install Development packages
-  [4] Install Optional packages
-  [5] Install Server packages
-
-  [6] Setup Node.js LTS
-  [7] Setup Git
-  [8] Setup SSH / GitHub
-  [9] Setup Zsh & configuration
-
-  [D] Run environment doctor
-  [A] Recommended setup
-  [0] Exit
-
----
-
-⚡ Recommended Setup
-
-Untuk installation baru setelah factory reset, gunakan:
-
+```text
 [A] Recommended setup
+```
 
-Recommended setup akan memasang komponen utama yang dibutuhkan environment.
-
-Secara umum:
-
-Termux update
-      ↓
-Core packages
-      ↓
-Node.js LTS
-      ↓
-Zsh / shell configuration
-      ↓
-Environment ready
-
-Komponen tambahan seperti Git identity dan GitHub SSH dapat dikonfigurasi melalui menu masing-masing.
+Recommended setup digunakan untuk menyiapkan environment utama secara otomatis.
 
 ---
 
-📦 Package Management
+## 🛠️ Setup Menu
 
-Package dikelompokkan berdasarkan kebutuhan.
+```text
+[1] Update / upgrade Termux
 
-Core
+[2] Install Core packages
+[3] Install Development packages
+[4] Install Optional packages
+[5] Install Server packages
 
-Tools dasar yang dibutuhkan environment:
+[6] Setup Node.js LTS
+[7] Setup Git
+[8] Setup SSH / GitHub
+[9] Setup Zsh & configuration
 
-git
-curl
-wget
-jq
-openssh
-zsh
-...
+[D] Run environment doctor
+[A] Recommended setup
+[0] Exit
+```
 
-Install:
+---
 
+## 📦 Packages
+
+Package dibagi berdasarkan kebutuhan:
+
+| Category | Purpose |
+|---|---|
+| `core` | Tools utama environment |
+| `dev` | Development tools |
+| `optional` | Tools tambahan |
+| `server` | Local/server development |
+
+Contoh:
+
+```bash
 bash scripts/packages.sh core
-
-Development
-
-Development tools seperti compiler, runtime, dan utilities.
-
-bash scripts/packages.sh dev
-
-Optional
-
-Tools tambahan yang tidak selalu dibutuhkan.
-
-bash scripts/packages.sh optional
-
-Server
-
-Package untuk kebutuhan server/local development.
-
-bash scripts/packages.sh server
+```
 
 ---
 
-🟢 Node.js
+## 🟢 Node.js
 
-Aurielle menggunakan Node.js LTS sebagai runtime utama untuk project JavaScript/Node.
+Setup Node.js LTS:
 
-Setup:
-
+```bash
 bash scripts/node.sh
+```
 
-Verifikasi:
+Verify:
 
+```bash
 node --version
 npm --version
+```
 
-Contoh environment:
-
-Node : v24.x
-npm  : 11.x
-
-Script akan mempertahankan instalasi Node.js yang sudah tersedia apabila environment sudah sesuai.
+Script akan mempertahankan instalasi yang sudah sesuai sehingga aman dijalankan kembali.
 
 ---
 
-🔧 Git
+## 🔧 Git
 
-Konfigurasi Git dapat dilakukan melalui:
+Setup Git:
 
+```bash
 bash scripts/git.sh
+```
 
-Verifikasi:
+Verify:
 
+```bash
 git --version
 git config --global --get user.name
 git config --global --get user.email
+```
 
-Jika Git identity belum tersedia, setup akan meminta konfigurasi yang diperlukan.
+Jika Git identity sudah dikonfigurasi, setup akan melewati konfigurasi tersebut.
 
 ---
 
-🔐 SSH & GitHub
+## 🔐 SSH / GitHub
 
-menyediakan setup SSH untuk GitHub.
+Setup SSH:
 
-Jalankan:
-
+```bash
 bash scripts/ssh.sh
+```
 
-Setup akan:
+Script akan menangani:
 
-1. Membuat "~/.ssh" jika belum tersedia.
-2. Membuat Ed25519 SSH key.
-3. Mengatur konfigurasi SSH.
-4. Menampilkan public key.
-5. Membantu melakukan authentication test ke GitHub.
+- `~/.ssh`
+- Ed25519 SSH key
+- SSH configuration
+- GitHub authentication
 
-Public key dapat ditambahkan melalui:
+Test:
 
-GitHub → Settings → SSH and GPG keys → New SSH key
-
-Setelah ditambahkan, test:
-
+```bash
 ssh -T git@github.com
-
-Authentication yang berhasil biasanya menghasilkan pesan seperti:
-
-Hi <username>! You've successfully authenticated,
-but GitHub does not provide shell access.
+```
 
 ---
 
-🐚 Zsh
+## 🐚 Zsh
 
-menggunakan Zsh + Oh My Zsh sebagai shell utama.
+Aurielle menggunakan:
 
-Setup:
-
-bash scripts/zsh.sh
-
-Komponen yang dikonfigurasi:
-
+```text
 Zsh
  ├── Oh My Zsh
  ├── zsh-autosuggestions
  ├── zsh-syntax-highlighting
- └── ExFavorite theme
+ └── ExFavorite
+```
 
-Zsh juga akan dikonfigurasi sebagai default shell apabila environment mendukungnya.
+Setup:
 
-Verifikasi:
+```bash
+bash scripts/zsh.sh
+```
 
+Verify:
+
+```bash
 echo "$SHELL"
+echo "$ZSH_THEME"
+```
 
 ---
 
-🎨 ExFavorite Theme
+## 🎨 Terminal
 
-menggunakan custom theme:
+Terminal configuration meliputi:
 
-ExFavorite
+- ExFavorite theme
+- Custom colors
+- Custom font
+- Terminal properties
+- Startup banner
+- MOTD
 
-Theme berada di:
+### Banner
 
-oh-my-zsh-custom/themes/exfavorite.zsh-theme
+Source utama banner:
 
-dan dipasang ke:
-
-~/.oh-my-zsh/custom/themes/exfavorite.zsh-theme
-
-Konfigurasi ".zshrc":
-
-ZSH_THEME="exfavorite"
-
----
-
-🖥️ Terminal Banner
-
-Banner utama berada di:
-
+```text
 scripts/banner.sh
+```
 
-File ini menjadi single source of truth untuk tampilan banner terminal.
+Banner digunakan untuk:
 
-Banner digunakan oleh:
-
+```text
 Termux startup
-       ↓
-     /etc/motd
+      ↓
+     MOTD
 
-clear command
-       ↓
-   Zsh clear hook
+clear
+      ↓
+  Zsh hook
+      ↓
+   Banner
+```
 
-Dengan demikian, tampilan startup dan "clear" menggunakan sumber yang sama.
+Generate MOTD:
 
-Menjalankan banner secara manual:
-
-bash scripts/banner.sh
-
----
-
-📜 MOTD
-
-MOTD dikonfigurasi melalui:
-
+```bash
 bash scripts/motd.sh
-
-Script menghasilkan:
-
-$PREFIX/etc/motd
-
-dan membuat generator:
-
-~/update_motd.sh
-
-Generator dapat digunakan untuk memperbarui MOTD berdasarkan "banner.sh".
+```
 
 ---
 
-🧹 Clear Hook
+## 🩺 Environment Doctor
 
-Aurielle mengintegrasikan banner dengan command:
+Setelah setup selesai, jalankan:
 
-clear
-
-Sehingga:
-
-clear
-
-tidak hanya membersihkan terminal, tetapi juga menampilkan kembali banner.
-
-Implementasinya berada pada konfigurasi Zsh.
-
-Tujuannya adalah menjaga pengalaman terminal tetap konsisten:
-
-┌──────────────────────────┐
-│      Terminal Start      │
-│          ↓               │
-│      Banner     │
-└──────────────────────────┘
-
-             atau
-
-┌──────────────────────────┐
-│          clear            │
-│            ↓              │
-│      Banner     │
-└──────────────────────────┘
-
----
-
-🩺 Environment Doctor
-
-Untuk memeriksa kondisi environment:
-
+```bash
 bash scripts/doctor.sh
+```
 
-Doctor memeriksa beberapa komponen utama:
+Doctor memeriksa:
 
+```text
 System
-
-- Termux
-- Architecture
-- Android version
-- Termux version
-
-Core Tools
-
-- Git
-- curl
-- wget
-- jq
-- OpenSSH
-- Zsh
-
+Core tools
 Node.js
-
-- Node.js
-- npm
-
 Git
-
-- Git name
-- Git email
-
 SSH
-
-- "~/.ssh"
-- Ed25519 private key
-- Ed25519 public key
-
-Configuration
-
-- ".bashrc"
-- ".profile"
-- ".zshrc"
-- ".termux"
-- Oh My Zsh
-
+Zsh
+Termux configuration
 Repository
+GitHub authentication
+```
 
-- "setup.sh"
-- "packages/"
-- "scripts/"
+Contoh hasil:
 
-GitHub
+```text
+════════════════════════════════════════════════════════
+DIAGNOSTIC SUMMARY
+════════════════════════════════════════════════════════
 
-- SSH key availability
+   ✅ Passed  : 23
+   ⚠️  Warning : 0
+   ❌ Failed  : 0
 
-Doctor membedakan:
-
-✅ Passed
-⚠️ Warning
-❌ Failed
-
-Warning tidak selalu berarti environment rusak. Beberapa warning merupakan konfigurasi opsional seperti Git identity atau SSH key.
+🌱 Aurielle environment is healthy.
+```
 
 ---
 
-🔄 Idempotent Setup
+## ♻️ Idempotent Setup
 
-Script dirancang agar aman dijalankan lebih dari satu kali.
-
-Contohnya:
-
-bash scripts/zsh.sh
-bash scripts/zsh.sh
-bash scripts/zsh.sh
-
-Tidak seharusnya menghasilkan instalasi plugin/theme yang berulang atau konfigurasi yang menumpuk.
-
-Plugin diperiksa berdasarkan file yang benar-benar dibutuhkan, bukan hanya keberadaan direktorinya.
+Script dirancang agar dapat dijalankan berkali-kali.
 
 Contoh:
 
-directory exists
-       ≠
-plugin installed
+```bash
+bash scripts/zsh.sh
+bash scripts/zsh.sh
+bash scripts/zsh.sh
+```
 
-Hal ini penting karena directory kosong dapat muncul akibat instalasi yang sebelumnya gagal.
+Setup tidak seharusnya:
+
+- Menginstall plugin berulang
+- Membuat konfigurasi duplikat
+- Mengganti konfigurasi yang sudah valid
+- Merusak environment yang sudah berjalan
 
 ---
 
-🔁 Factory Reset Recovery
+## 🔁 Factory Reset Recovery
 
-Salah satu tujuan utama repository ini adalah mempermudah recovery setelah device di-reset.
+Repository ini dirancang sebagai **recovery blueprint** untuk environment Termux.
 
-Flow yang diharapkan:
-
+```text
 Factory Reset
       ↓
 Install Termux
       ↓
-Clone termux-setup
+Clone repository
       ↓
 bash setup.sh
       ↓
@@ -484,24 +354,20 @@ Configure Git
       ↓
 Configure SSH / GitHub
       ↓
-Configure Zsh
-      ↓
 Environment Doctor
       ↓
 🌱 Environment Ready
+```
 
-Dengan repository ini, konfigurasi environment tidak perlu dibuat ulang secara manual.
+Dengan repository ini, environment dapat dibangun kembali tanpa melakukan konfigurasi manual dari awal.
 
 ---
 
-🧪 Verification
+## 🧪 Verification
 
-Setelah setup selesai, jalankan:
+Basic verification:
 
-bash scripts/doctor.sh
-
-Kemudian verifikasi:
-
+```bash
 node --version
 npm --version
 git --version
@@ -509,62 +375,70 @@ curl --version
 jq --version
 ssh -V
 zsh --version
+```
 
-Verifikasi shell:
+Shell:
 
+```bash
 echo "$SHELL"
 echo "$ZSH_THEME"
+```
 
-Verifikasi plugin:
+Zsh plugins:
 
+```bash
 ls ~/.oh-my-zsh/custom/plugins/
+```
 
-Verifikasi theme:
+Theme:
 
+```bash
 ls ~/.oh-my-zsh/custom/themes/
+```
 
-Verifikasi GitHub:
+GitHub:
 
+```bash
 ssh -T git@github.com
+```
+
+Atau gunakan:
+
+```bash
+bash scripts/doctor.sh
+```
 
 ---
 
-🌱 Design Philosophy
+## 🌱 Philosophy
 
-Aurielle Termux Setup mengikuti beberapa prinsip:
+Aurielle Termux Setup dibangun dengan beberapa prinsip:
 
-1. Separation of Concerns
+**Separation of Concerns**  
+Environment dipisahkan dari source code project.
 
-Environment setup dan source code dipisahkan.
+**Idempotency**  
+Setup aman untuk dijalankan kembali.
 
-2. Idempotency
-
-Setup dapat dijalankan kembali tanpa merusak konfigurasi yang sudah ada.
-
-3. Recovery First
-
+**Recovery First**  
 Environment harus mudah dipulihkan setelah device reset.
 
-4. Single Source of Truth
+**Single Source of Truth**  
+Konfigurasi penting tidak dibuat berulang di banyak tempat.
 
-Komponen seperti terminal banner tidak dibuat ulang di banyak tempat.
+**Automation First**  
+Minimalkan konfigurasi manual.
 
-5. Diagnostic Before Manual Fix
-
-Environment Doctor digunakan untuk mengetahui kondisi sistem sebelum melakukan troubleshooting manual.
-
-6. Minimal Manual Configuration
-
-Sebisa mungkin proses setup dilakukan melalui automation.
+**Diagnostic First**  
+Gunakan Environment Doctor sebelum melakukan troubleshooting manual.
 
 ---
 
-📌 Current Environment
-
-Environment ini dikembangkan dan digunakan pada perangkat Android ARM64 dengan Termux.
+## 📌 Environment
 
 Contoh environment:
 
+```text
 Architecture : aarch64
 Android      : 9
 Termux       : 0.119.0-beta.3
@@ -573,15 +447,16 @@ npm          : 11.x
 Shell        : Zsh
 Framework    : Oh My Zsh
 Theme        : ExFavorite
+```
 
-Versi dapat berbeda tergantung versi package yang tersedia pada repository Termux.
+> Versi dapat berbeda tergantung perangkat dan repository package Termux.
 
 ---
 
-🌱 Farid Fathoni N
+## 🌱 Farid Fathoni N
 
-«A clean environment for a calmer development workflow.»
+> *“A clean environment for a calmer development workflow.”*
 
-Repository ini bukan sekadar installer package.
+**Aurielle Termux Setup** bukan sekadar package installer.
 
-Ini adalah blueprint environment Farid Fathoni N — sehingga ketika environment hilang, device di-reset, atau setup perlu direproduksi, seluruh fondasi dapat dibangun kembali dari repository ini.
+Ini adalah **blueprint environment** yang memungkinkan seluruh fondasi development dibangun kembali ketika environment hilang, device di-reset, atau setup perlu direproduksi.

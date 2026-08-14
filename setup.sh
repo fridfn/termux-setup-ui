@@ -89,6 +89,19 @@ update_termux() {
 
 
 # ───────────────────────────────────────────────────────────────
+# PROJECT
+# ───────────────────────────────────────────────────────────────
+
+setup_project_workspace() {
+    echo
+    echo "🌱 Project Workspace"
+    echo
+
+    bash "$SCRIPT_DIR/project/setup.sh"
+}
+
+
+# ───────────────────────────────────────────────────────────────
 # MENU
 # ───────────────────────────────────────────────────────────────
 
@@ -112,6 +125,7 @@ while true; do
     echo "  [9] Setup Zsh, Termux Style & configuration"
     echo ""
     echo "  [D] Run environment doctor"
+    echo "  [P] Setup Project Workspace"
     echo "  [A] Recommended setup"
     echo "  [T] Setup Termux style"
     echo "  [0] Exit"
@@ -238,6 +252,9 @@ while true; do
             ;;
         [Tt])
             bash "$TERMUX_STYLE"
+            ;;
+        [Pp])
+            setup_project_workspace
             ;;
         0)
             echo ""
