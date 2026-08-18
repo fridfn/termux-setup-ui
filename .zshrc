@@ -104,3 +104,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# ═══════════════════════════════════════════════════════════
+# FARID FATHONI N ZSH CONFIG
+# ═══════════════════════════════════════════════════════════
+
+[[ -f ~/.config/zsh/environment.zsh ]] && source ~/.config/zsh/environment.zsh
+[[ -f ~/.config/zsh/aliases.zsh ]] && source ~/.config/zsh/aliases.zsh
+[[ -f ~/.config/zsh/functions.zsh ]] && source ~/.config/zsh/functions.zsh

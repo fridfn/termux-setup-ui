@@ -173,7 +173,7 @@ while true; do
             
             echo ""
             echo "🌱 Configuring Termux style..."
-            bash "$TERMUX"
+            bash "$TERMUX_STYLE"
             
             echo ""
             echo "🌱 Configuring MOTD..."

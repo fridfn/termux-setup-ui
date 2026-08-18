@@ -51,6 +51,25 @@ else
     echo "   ⚠️  font.ttf tidak ditemukan."
 fi
 
+
+if [[ -f "$HOME/.termux/colors.properties" ]]; then
+    echo "   Colors       : ✅ Configured"
+else
+    echo "   Colors       : ❌ Missing"
+fi
+
+if [[ -f "$HOME/.termux/font.ttf" ]]; then
+    echo "   Font         : ✅ Configured"
+else
+    echo "   Font         : ❌ Missing"
+fi
+
+if pm list packages 2>/dev/null | grep -q "com.termux.styling"; then
+    echo "   Styling App  : ✅ Installed"
+else
+    echo "   Styling App  : ⚪ Optional"
+fi
+
 echo ""
 echo "✅ Termux style setup selesai."
 echo ""

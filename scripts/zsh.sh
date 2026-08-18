@@ -200,3 +200,72 @@ fi
 echo ""
 echo "✅ Zsh setup selesai."
 echo ""
+
+# ═══════════════════════════════════════════════════════════
+# FARID FATHONI N ZSH CONFIG
+# ═══════════════════════════════════════════════════════════
+
+ZSH_CONFIG_SOURCE="$REPO_DIR/config/zsh"
+ZSH_CONFIG_DEST="$HOME/.config/zsh"
+
+echo "⚙️  Installing FARID FATHONI N Zsh configuration..."
+
+# Validate source directory
+if [[ ! -d "$ZSH_CONFIG_SOURCE" ]]; then
+    echo "❌ Zsh config directory tidak ditemukan:"
+    echo "   $ZSH_CONFIG_SOURCE"
+    exit 1
+fi
+
+# Create destination directory
+mkdir -p "$ZSH_CONFIG_DEST"
+
+# Required configuration files
+for file in aliases.zsh functions.zsh environment.zsh; do
+    if [[ ! -f "$ZSH_CONFIG_SOURCE/$file" ]]; then
+        echo "❌ Missing Zsh configuration:"
+        echo "   $ZSH_CONFIG_SOURCE/$file"
+        exit 1
+    fi
+
+    cp "$ZSH_CONFIG_SOURCE/$file" "$ZSH_CONFIG_DEST/$file"
+done
+
+echo "✅ FARID FATHONI N Zsh configuration installed."
+echo "   📁 $ZSH_CONFIG_DEST"
+echo "      ├── aliases.zsh"
+echo "      ├── functions.zsh"
+echo "      └── environment.zsh"
+
+
+# ═══════════════════════════════════════════════════════════
+# ZSH LOADER
+# ═══════════════════════════════════════════════════════════
+
+install_zsh_loader() {
+    local loader='# FARID FATHONI N ZSH CONFIG'
+
+    if ! grep -q "$loader" "$ZSHRC" 2>/dev/null; then
+
+        cat >> "$ZSHRC" <<'EOF'
+
+# ═══════════════════════════════════════════════════════════
+# FARID FATHONI N ZSH CONFIG
+# ═══════════════════════════════════════════════════════════
+
+[[ -f ~/.config/zsh/environment.zsh ]] && source ~/.config/zsh/environment.zsh
+[[ -f ~/.config/zsh/aliases.zsh ]] && source ~/.config/zsh/aliases.zsh
+[[ -f ~/.config/zsh/functions.zsh ]] && source ~/.config/zsh/functions.zsh
+
+EOF
+
+        echo "   ✅ Zsh loader configured"
+
+    else
+
+        echo "   ℹ️  Zsh loader already configured"
+
+    fi
+}
+
+install_zsh_loader
